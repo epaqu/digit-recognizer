@@ -66,7 +66,7 @@ print("CNN Error:%.2f%%" %(100 - score[1] * 100))
 test_x = pd.read_csv('../input/test.csv')
 test_x = test_x.values.reshape(test_x.shape[0],28,28,1)
 preds=model.predict_classes(test_x,verbose=1)
-model.save('digit_recognizer.h5')
+model.save('ConvNet_model.h5')
 
 #export output
-pd.DataFrame({"Id": list(range(1, len(preds) + 1)), "Label": preds}).to_csv("cnn-test.csv", index = False, header = True)
+pd.DataFrame({"Id": list(range(1, len(preds) + 1)), "Label": preds}).to_csv("test_result.csv", index = False, header = True)
